@@ -12,3 +12,4 @@ Criar um novo arquivo
 * Cadastrar scaffold time (rails g scaffold)
 * Cadastrar scaffold Jogador fazendo ligação da tabela (belong_to: 'nome tabela')
 * Testar para ver se estar funcionando
+* Criar Tabela Partidas integrando a tabela times(rails g scaffold match team_house:belongs_to team_outside:belongs_to  )
