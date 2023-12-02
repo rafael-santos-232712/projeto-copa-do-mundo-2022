@@ -480,3 +480,339 @@ Processing by TeamsController#index as HTML
 Completed 200 OK in 12ms (Views: 11.6ms | ActiveRecord: 0.1ms | Allocations: 3429)
 
 
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" ORDER BY "teams"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" ORDER BY "teams"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" ORDER BY "teams"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePlayers (20231202224030)
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSoccerPlayers (20231202230007)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "soccer_players" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "number" integer, "team_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_caf43c28e7"
+FOREIGN KEY ("team_id")
+  REFERENCES "teams" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_soccer_players_on_team_id" ON "soccer_players" ("team_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231202230007') RETURNING "version"[0m
+  [1m[36mTRANSACTION (16.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" ORDER BY "teams"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mSoccerPlayer Load (0.1ms)[0m  [1m[34mSELECT "soccer_players".* FROM "soccer_players" WHERE "soccer_players"."team_id" = ? /* loading for pp */ LIMIT ?[0m  [["team_id", 5], ["LIMIT", 11]]
+Started GET "/" for 10.240.0.10 at 2023-12-02 23:09:33 +0000
+Cannot render console from 10.240.0.10! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/rvm/gems/ruby-3.2.2/gems/railties-7.1.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/rvm/gems/ruby-3.2.2/gems/railties-7.1.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.5ms | Allocations: 265)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 898)
+
+
+Started GET "/" for 10.240.4.3 at 2023-12-02 23:11:24 +0000
+Cannot render console from 10.240.4.3! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/rvm/gems/ruby-3.2.2/gems/railties-7.1.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/rvm/gems/ruby-3.2.2/gems/railties-7.1.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 13)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 206)
+
+
+Started GET "/teams" for 10.240.4.3 at 2023-12-02 23:11:32 +0000
+Cannot render console from 10.240.4.3! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (2.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:6
+  Rendered teams/_team.html.erb (Duration: 0.3ms | Allocations: 204)
+  Rendered teams/_team.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered teams/_team.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered teams/_team.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered teams/_team.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered teams/index.html.erb within layouts/application (Duration: 8.0ms | Allocations: 4552)
+  Rendered layout layouts/application.html.erb (Duration: 17.5ms | Allocations: 17716)
+Completed 200 OK in 22ms (Views: 15.1ms | ActiveRecord: 3.6ms | Allocations: 19801)
+
+
+Started GET "/soccer_play" for 10.240.4.3 at 2023-12-02 23:11:45 +0000
+Cannot render console from 10.240.4.3! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+ActionController::RoutingError (No route matches [GET] "/soccer_play"):
+  
+Started GET "/soccer_player" for 10.240.4.3 at 2023-12-02 23:12:32 +0000
+Cannot render console from 10.240.4.3! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+ActionController::RoutingError (No route matches [GET] "/soccer_player"):
+  
+Started GET "/soccer_players/new" for 10.240.4.3 at 2023-12-02 23:13:23 +0000
+Cannot render console from 10.240.4.3! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SoccerPlayersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering soccer_players/new.html.erb within layouts/application
+  Rendered soccer_players/_form.html.erb (Duration: 1.7ms | Allocations: 1479)
+  Rendered soccer_players/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1758)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 3737)
+Completed 200 OK in 14ms (Views: 5.1ms | ActiveRecord: 0.4ms | Allocations: 9825)
+
+
+Started GET "/soccer_player" for 10.240.4.3 at 2023-12-02 23:13:36 +0000
+Cannot render console from 10.240.4.3! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+ActionController::RoutingError (No route matches [GET] "/soccer_player"):
+  
+Started GET "//soccer_players/new" for 10.240.4.3 at 2023-12-02 23:14:11 +0000
+Cannot render console from 10.240.4.3! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SoccerPlayersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering soccer_players/new.html.erb within layouts/application
+  Rendered soccer_players/_form.html.erb (Duration: 1.3ms | Allocations: 934)
+  Rendered soccer_players/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1013)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 2988)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms | Allocations: 3234)
+
+
+Started POST "/soccer_players" for 10.240.1.209 at 2023-12-02 23:15:34 +0000
+Cannot render console from 10.240.1.209! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SoccerPlayersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "soccer_player"=>{"name"=>"Ronaldo", "number"=>"9", "team_id"=>"Brasil"}, "commit"=>"Create Soccer player"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/soccer_players_controller.rb:27:in `block in create'
+  [1m[36mTeam Load (1.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/soccer_players_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/soccer_players_controller.rb:27:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering soccer_players/new.html.erb within layouts/application
+  Rendered soccer_players/_form.html.erb (Duration: 1.6ms | Allocations: 1339)
+  Rendered soccer_players/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1418)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 3356)
+Completed 422 Unprocessable Entity in 23ms (Views: 5.4ms | ActiveRecord: 1.3ms | Allocations: 13650)
+
+
+Started GET "//soccer_players/new" for 10.240.1.209 at 2023-12-02 23:16:16 +0000
+Cannot render console from 10.240.1.209! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SoccerPlayersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering soccer_players/new.html.erb within layouts/application
+  Rendered soccer_players/_form.html.erb (Duration: 1.4ms | Allocations: 943)
+  Rendered soccer_players/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1022)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 2964)
+Completed 200 OK in 5ms (Views: 5.0ms | ActiveRecord: 0.0ms | Allocations: 3209)
+
+
+Started GET "/teams" for 10.240.1.209 at 2023-12-02 23:16:22 +0000
+Cannot render console from 10.240.1.209! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:6
+  Rendered teams/_team.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered teams/_team.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered teams/_team.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered teams/_team.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered teams/_team.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered teams/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1239)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 3182)
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.1ms | Allocations: 3424)
+
+
+Started POST "/soccer_players" for 10.240.1.209 at 2023-12-02 23:16:41 +0000
+Cannot render console from 10.240.1.209! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SoccerPlayersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "soccer_player"=>{"name"=>"Ronaldo", "number"=>"9", "team_id"=>"1"}, "commit"=>"Create Soccer player"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/soccer_players_controller.rb:27:in `block in create'
+  [1m[36mTeam Load (1.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/soccer_players_controller.rb:27:in `block in create'
+  [1m[36mSoccerPlayer Create (0.1ms)[0m  [1m[32mINSERT INTO "soccer_players" ("name", "number", "team_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Ronaldo"], ["number", 9], ["team_id", 1], ["created_at", "2023-12-02 23:16:41.926836"], ["updated_at", "2023-12-02 23:16:41.926836"]]
+  ↳ app/controllers/soccer_players_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (13.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/soccer_players_controller.rb:27:in `block in create'
+Redirected to https://scaling-potato-q7qjw9xj6wq5fjjp-3000.app.github.dev/soccer_players/1
+Completed 302 Found in 20ms (ActiveRecord: 15.0ms | Allocations: 2764)
+
+
+Started GET "/soccer_players/1" for 10.240.1.209 at 2023-12-02 23:16:42 +0000
+Cannot render console from 10.240.1.209! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SoccerPlayersController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mSoccerPlayer Load (0.2ms)[0m  [1m[34mSELECT "soccer_players".* FROM "soccer_players" WHERE "soccer_players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/soccer_players_controller.rb:63:in `set_soccer_player'
+  Rendering layout layouts/application.html.erb
+  Rendering soccer_players/show.html.erb within layouts/application
+  Rendered soccer_players/_soccer_player.html.erb (Duration: 0.4ms | Allocations: 191)
+  Rendered soccer_players/show.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1016)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 2954)
+Completed 200 OK in 20ms (Views: 9.1ms | ActiveRecord: 0.2ms | Allocations: 4355)
+
+
+  [1m[36mTeam Pluck (0.1ms)[0m  [1m[34mSELECT "teams"."name", "teams"."id" FROM "teams"[0m
+Started GET "/soccer_players/1/edit" for 10.240.3.108 at 2023-12-02 23:22:58 +0000
+Cannot render console from 10.240.3.108! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SoccerPlayersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSoccerPlayer Load (0.7ms)[0m  [1m[34mSELECT "soccer_players".* FROM "soccer_players" WHERE "soccer_players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/soccer_players_controller.rb:65:in `set_soccer_player'
+  Rendering layout layouts/application.html.erb
+  Rendering soccer_players/edit.html.erb within layouts/application
+  [1m[36mTeam Pluck (0.1ms)[0m  [1m[34mSELECT "teams"."name", "teams"."id" FROM "teams"[0m
+  ↳ app/views/soccer_players/_form.html.erb:29
+  Rendered soccer_players/_form.html.erb (Duration: 3.4ms | Allocations: 2132)
+  Rendered soccer_players/edit.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2470)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 15610)
+Completed 200 OK in 24ms (Views: 14.9ms | ActiveRecord: 1.1ms | Allocations: 21840)
+
+
+Started GET "/soccer_players/1/edit" for 10.240.3.108 at 2023-12-02 23:23:14 +0000
+Cannot render console from 10.240.3.108! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SoccerPlayersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSoccerPlayer Load (0.1ms)[0m  [1m[34mSELECT "soccer_players".* FROM "soccer_players" WHERE "soccer_players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/soccer_players_controller.rb:65:in `set_soccer_player'
+  Rendering layout layouts/application.html.erb
+  Rendering soccer_players/edit.html.erb within layouts/application
+  [1m[36mTeam Pluck (0.1ms)[0m  [1m[34mSELECT "teams"."name", "teams"."id" FROM "teams"[0m
+  ↳ app/views/soccer_players/_form.html.erb:26
+  Rendered soccer_players/_form.html.erb (Duration: 3.5ms | Allocations: 2242)
+  Rendered soccer_players/edit.html.erb within layouts/application (Duration: 4.4ms | Allocations: 2573)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 15500)
+Completed 200 OK in 25ms (Views: 15.8ms | ActiveRecord: 1.5ms | Allocations: 22159)
+
+
+Started PATCH "/soccer_players/1" for 10.240.3.108 at 2023-12-02 23:23:20 +0000
+Cannot render console from 10.240.3.108! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SoccerPlayersController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "soccer_player"=>{"name"=>"Ronaldo", "number"=>"9"}, "team_id"=>"2", "commit"=>"Update Soccer player", "id"=>"1"}
+  [1m[36mSoccerPlayer Load (0.1ms)[0m  [1m[34mSELECT "soccer_players".* FROM "soccer_players" WHERE "soccer_players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/soccer_players_controller.rb:65:in `set_soccer_player'
+Redirected to https://scaling-potato-q7qjw9xj6wq5fjjp-3000.app.github.dev/soccer_players/1
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 1069)
+
+
+Started GET "/soccer_players/1" for 10.240.3.108 at 2023-12-02 23:23:20 +0000
+Cannot render console from 10.240.3.108! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SoccerPlayersController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mSoccerPlayer Load (0.1ms)[0m  [1m[34mSELECT "soccer_players".* FROM "soccer_players" WHERE "soccer_players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/soccer_players_controller.rb:65:in `set_soccer_player'
+  Rendering layout layouts/application.html.erb
+  Rendering soccer_players/show.html.erb within layouts/application
+  Rendered soccer_players/_soccer_player.html.erb (Duration: 0.3ms | Allocations: 192)
+  Rendered soccer_players/show.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1015)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 2986)
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.1ms | Allocations: 3703)
+
+
+Started GET "/soccer_players/1/edit" for 10.240.3.108 at 2023-12-02 23:23:40 +0000
+Cannot render console from 10.240.3.108! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SoccerPlayersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSoccerPlayer Load (0.1ms)[0m  [1m[34mSELECT "soccer_players".* FROM "soccer_players" WHERE "soccer_players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/soccer_players_controller.rb:65:in `set_soccer_player'
+  Rendering layout layouts/application.html.erb
+  Rendering soccer_players/edit.html.erb within layouts/application
+  [1m[36mTeam Pluck (0.0ms)[0m  [1m[34mSELECT "teams"."name", "teams"."id" FROM "teams"[0m
+  ↳ app/views/soccer_players/_form.html.erb:26
+  Rendered soccer_players/_form.html.erb (Duration: 2.5ms | Allocations: 1363)
+  Rendered soccer_players/edit.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1467)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 3436)
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.1ms | Allocations: 4033)
+
+
+Started GET "/soccer_players/1/edit" for 10.240.3.108 at 2023-12-02 23:24:20 +0000
+Cannot render console from 10.240.3.108! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SoccerPlayersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSoccerPlayer Load (0.1ms)[0m  [1m[34mSELECT "soccer_players".* FROM "soccer_players" WHERE "soccer_players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/soccer_players_controller.rb:65:in `set_soccer_player'
+  Rendering layout layouts/application.html.erb
+  Rendering soccer_players/edit.html.erb within layouts/application
+  [1m[36mTeam Pluck (0.1ms)[0m  [1m[34mSELECT "teams"."name", "teams"."id" FROM "teams"[0m
+  ↳ app/views/soccer_players/_form.html.erb:26
+  Rendered soccer_players/_form.html.erb (Duration: 3.4ms | Allocations: 2244)
+  Rendered soccer_players/edit.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2575)
+  Rendered layout layouts/application.html.erb (Duration: 16.1ms | Allocations: 15683)
+Completed 200 OK in 27ms (Views: 17.5ms | ActiveRecord: 2.0ms | Allocations: 22372)
+
+
+Started PATCH "/soccer_players/1" for 10.240.3.108 at 2023-12-02 23:24:26 +0000
+Cannot render console from 10.240.3.108! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SoccerPlayersController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "soccer_player"=>{"name"=>"Ronaldo", "number"=>"9", "team_id"=>"2"}, "commit"=>"Update Soccer player", "id"=>"1"}
+  [1m[36mSoccerPlayer Load (0.1ms)[0m  [1m[34mSELECT "soccer_players".* FROM "soccer_players" WHERE "soccer_players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/soccer_players_controller.rb:65:in `set_soccer_player'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/soccer_players_controller.rb:42:in `block in update'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/soccer_players_controller.rb:42:in `block in update'
+  [1m[36mSoccerPlayer Update (0.1ms)[0m  [1m[33mUPDATE "soccer_players" SET "team_id" = ?, "updated_at" = ? WHERE "soccer_players"."id" = ?[0m  [["team_id", 2], ["updated_at", "2023-12-02 23:24:26.599980"], ["id", 1]]
+  ↳ app/controllers/soccer_players_controller.rb:42:in `block in update'
+  [1m[36mTRANSACTION (14.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/soccer_players_controller.rb:42:in `block in update'
+Redirected to https://scaling-potato-q7qjw9xj6wq5fjjp-3000.app.github.dev/soccer_players/1
+Completed 302 Found in 25ms (ActiveRecord: 16.2ms | Allocations: 7164)
+
+
+Started GET "/soccer_players/1" for 10.240.3.108 at 2023-12-02 23:24:26 +0000
+Cannot render console from 10.240.3.108! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SoccerPlayersController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mSoccerPlayer Load (0.1ms)[0m  [1m[34mSELECT "soccer_players".* FROM "soccer_players" WHERE "soccer_players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/soccer_players_controller.rb:65:in `set_soccer_player'
+  Rendering layout layouts/application.html.erb
+  Rendering soccer_players/show.html.erb within layouts/application
+  Rendered soccer_players/_soccer_player.html.erb (Duration: 0.3ms | Allocations: 192)
+  Rendered soccer_players/show.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1026)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 2997)
+Completed 200 OK in 12ms (Views: 5.4ms | ActiveRecord: 0.1ms | Allocations: 3715)
+
+
+Started GET "/soccer_players/1/edit" for 10.240.3.108 at 2023-12-02 23:24:31 +0000
+Cannot render console from 10.240.3.108! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SoccerPlayersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSoccerPlayer Load (0.1ms)[0m  [1m[34mSELECT "soccer_players".* FROM "soccer_players" WHERE "soccer_players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/soccer_players_controller.rb:65:in `set_soccer_player'
+  Rendering layout layouts/application.html.erb
+  Rendering soccer_players/edit.html.erb within layouts/application
+  [1m[36mTeam Pluck (0.0ms)[0m  [1m[34mSELECT "teams"."name", "teams"."id" FROM "teams"[0m
+  ↳ app/views/soccer_players/_form.html.erb:26
+  Rendered soccer_players/_form.html.erb (Duration: 2.6ms | Allocations: 1347)
+  Rendered soccer_players/edit.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1451)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 3421)
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.1ms | Allocations: 4018)
+
+
+Started PATCH "/soccer_players/1" for 10.240.3.108 at 2023-12-02 23:24:42 +0000
+Cannot render console from 10.240.3.108! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SoccerPlayersController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "soccer_player"=>{"name"=>"Ronaldo", "number"=>"9", "team_id"=>"4"}, "commit"=>"Update Soccer player", "id"=>"1"}
+  [1m[36mSoccerPlayer Load (0.1ms)[0m  [1m[34mSELECT "soccer_players".* FROM "soccer_players" WHERE "soccer_players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/soccer_players_controller.rb:65:in `set_soccer_player'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/soccer_players_controller.rb:42:in `block in update'
+  [1m[36mTeam Load (1.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/soccer_players_controller.rb:42:in `block in update'
+  [1m[36mSoccerPlayer Update (0.1ms)[0m  [1m[33mUPDATE "soccer_players" SET "team_id" = ?, "updated_at" = ? WHERE "soccer_players"."id" = ?[0m  [["team_id", 4], ["updated_at", "2023-12-02 23:24:42.911630"], ["id", 1]]
+  ↳ app/controllers/soccer_players_controller.rb:42:in `block in update'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/soccer_players_controller.rb:42:in `block in update'
+Redirected to https://scaling-potato-q7qjw9xj6wq5fjjp-3000.app.github.dev/soccer_players/1
+Completed 302 Found in 9ms (ActiveRecord: 1.7ms | Allocations: 3091)
+
+
+Started GET "/soccer_players/1" for 10.240.3.108 at 2023-12-02 23:24:43 +0000
+Cannot render console from 10.240.3.108! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SoccerPlayersController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mSoccerPlayer Load (0.1ms)[0m  [1m[34mSELECT "soccer_players".* FROM "soccer_players" WHERE "soccer_players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/soccer_players_controller.rb:65:in `set_soccer_player'
+  Rendering layout layouts/application.html.erb
+  Rendering soccer_players/show.html.erb within layouts/application
+  Rendered soccer_players/_soccer_player.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered soccer_players/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 487)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | Allocations: 2456)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.1ms | Allocations: 3044)
+
+
