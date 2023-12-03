@@ -13,3 +13,34 @@ Criar um novo arquivo
 * Cadastrar scaffold Jogador fazendo ligação da tabela (belong_to: 'nome tabela')
 * Testar para ver se estar funcionando
 * Criar Tabela Partidas integrando a tabela times(rails g scaffold match team_house:belongs_to team_outside:belongs_to  )
+
+
+Criando Frontend
+
+*node -v
+*npm -v
+
+* Criar aplicação vue para o frontend:
+
+![alt](/img-1.png)
+
+
+* Instalar dependencias do Vue (cd pasta frontend/ npm install/ iniciar servidor(npm run dev)
+* Ibstalar bootstrap-vue-next
+    * Instalar biblioteca: npm i -S bootstrap bootstrap-vue-next
+    * Importar em arquivo `main.js`
+```js
+//....
+
+import BootstrapVueNext from 'bootstrap-vue-next'
+
+import 'bootstrap'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue-next/dist/bootstrap-vue-next.css'
+
+const app = createApp(App)
+
+app.use(BootstrapVueNext)
+
+//....
+```
