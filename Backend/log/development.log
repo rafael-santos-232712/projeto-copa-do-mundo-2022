@@ -1023,3 +1023,252 @@ Processing by MatchesController#index as HTML
 Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.1ms | Allocations: 3177)
 
 
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" ORDER BY "teams"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSoccerPlayer Load (0.1ms)[0m  [1m[34mSELECT "soccer_players".* FROM "soccer_players" WHERE "soccer_players"."team_id" = ? /* loading for pp */ LIMIT ?[0m  [["team_id", 1], ["LIMIT", 11]]
+  [1m[36mMatch Load (0.1ms)[0m  [1m[34mSELECT "matches".* FROM "matches" ORDER BY "matches"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mMatch Load (0.1ms)[0m  [1m[34mSELECT "matches".* FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?) /* loading for pp */ LIMIT ?[0m  [["team_outside_id", 1], ["team_house_id", 1], ["LIMIT", 11]]
+  [1m[36mMatch Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 1], ["team_house_id", 1]]
+Started GET "/teams" for 10.240.0.222 at 2023-12-03 00:04:07 +0000
+Cannot render console from 10.240.0.222! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.9ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:6
+  Rendered teams/_team.html.erb (Duration: 0.6ms | Allocations: 204)
+  Rendered teams/_team.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered teams/_team.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered teams/_team.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered teams/_team.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered teams/index.html.erb within layouts/application (Duration: 10.2ms | Allocations: 4569)
+  Rendered layout layouts/application.html.erb (Duration: 24.9ms | Allocations: 17734)
+Completed 200 OK in 31ms (Views: 25.4ms | ActiveRecord: 1.4ms | Allocations: 19694)
+
+
+Started GET "/teams" for 10.240.0.222 at 2023-12-03 00:05:03 +0000
+Cannot render console from 10.240.0.222! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:6
+  [1m[36mMatch Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 1], ["team_house_id", 1]]
+  ↳ app/models/team.rb:8:in `match_quatity'
+  Rendered teams/_team.html.erb (Duration: 4.4ms | Allocations: 2213)
+  [1m[36mMatch Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 2], ["team_house_id", 2]]
+  ↳ app/models/team.rb:8:in `match_quatity'
+  Rendered teams/_team.html.erb (Duration: 0.8ms | Allocations: 506)
+  [1m[36mMatch Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 3], ["team_house_id", 3]]
+  ↳ app/models/team.rb:8:in `match_quatity'
+  Rendered teams/_team.html.erb (Duration: 0.9ms | Allocations: 506)
+  [1m[36mMatch Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 4], ["team_house_id", 4]]
+  ↳ app/models/team.rb:8:in `match_quatity'
+  Rendered teams/_team.html.erb (Duration: 0.8ms | Allocations: 506)
+  [1m[36mMatch Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 5], ["team_house_id", 5]]
+  ↳ app/models/team.rb:8:in `match_quatity'
+  Rendered teams/_team.html.erb (Duration: 0.9ms | Allocations: 507)
+  Rendered teams/index.html.erb within layouts/application (Duration: 14.8ms | Allocations: 8903)
+  Rendered layout layouts/application.html.erb (Duration: 28.4ms | Allocations: 21960)
+Completed 200 OK in 32ms (Views: 27.6ms | ActiveRecord: 1.9ms | Allocations: 23853)
+
+
+Started GET "/teams.json" for 10.240.0.222 at 2023-12-03 00:05:57 +0000
+Cannot render console from 10.240.0.222! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#index as JSON
+  Rendering teams/index.json.jbuilder
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.json.jbuilder:1
+  Rendered collection of teams/_team.json.jbuilder [5 times] (Duration: 1.0ms | Allocations: 560)
+  Rendered teams/index.json.jbuilder (Duration: 3.1ms | Allocations: 1348)
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.1ms | Allocations: 1824)
+
+
+Started GET "/teams.json" for 10.240.0.222 at 2023-12-03 00:06:18 +0000
+Cannot render console from 10.240.0.222! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#index as JSON
+  Rendering teams/index.json.jbuilder
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.json.jbuilder:1
+  [1m[36mMatch Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 1], ["team_house_id", 1]]
+  ↳ app/models/team.rb:8:in `match_quatity'
+  [1m[36mMatch Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 2], ["team_house_id", 2]]
+  ↳ app/models/team.rb:8:in `match_quatity'
+  [1m[36mMatch Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 3], ["team_house_id", 3]]
+  ↳ app/models/team.rb:8:in `match_quatity'
+  [1m[36mMatch Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 4], ["team_house_id", 4]]
+  ↳ app/models/team.rb:8:in `match_quatity'
+  [1m[36mMatch Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 5], ["team_house_id", 5]]
+  ↳ app/models/team.rb:8:in `match_quatity'
+  Rendered collection of teams/_team.json.jbuilder [5 times] (Duration: 7.7ms | Allocations: 4412)
+  Rendered teams/index.json.jbuilder (Duration: 13.1ms | Allocations: 8480)
+Completed 200 OK in 17ms (Views: 12.5ms | ActiveRecord: 1.9ms | Allocations: 10544)
+
+
+Started GET "/teams/1.json" for 10.240.0.222 at 2023-12-03 00:06:38 +0000
+Cannot render console from 10.240.0.222! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:63:in `set_team'
+  Rendering teams/show.json.jbuilder
+  [1m[36mMatch Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 1], ["team_house_id", 1]]
+  ↳ app/models/team.rb:8:in `match_quatity'
+  Rendered teams/_team.json.jbuilder (Duration: 1.6ms | Allocations: 666)
+  Rendered teams/show.json.jbuilder (Duration: 2.2ms | Allocations: 875)
+Completed 200 OK in 5ms (Views: 2.6ms | ActiveRecord: 0.2ms | Allocations: 2208)
+
+
+Started GET "/teams/1.json" for 10.240.0.222 at 2023-12-03 00:06:58 +0000
+Cannot render console from 10.240.0.222! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:63:in `set_team'
+  Rendering teams/show.json.jbuilder
+  [1m[36mMatch Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 1], ["team_house_id", 1]]
+  ↳ app/models/team.rb:8:in `match_quatity'
+  Rendered teams/_team.json.jbuilder (Duration: 1.4ms | Allocations: 593)
+  Rendered teams/show.json.jbuilder (Duration: 1.9ms | Allocations: 698)
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.2ms | Allocations: 1321)
+
+
+Started GET "/teams/2.json" for 10.240.0.222 at 2023-12-03 00:07:09 +0000
+Cannot render console from 10.240.0.222! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:63:in `set_team'
+  Rendering teams/show.json.jbuilder
+  [1m[36mMatch Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 2], ["team_house_id", 2]]
+  ↳ app/models/team.rb:8:in `match_quatity'
+  Rendered teams/_team.json.jbuilder (Duration: 1.5ms | Allocations: 593)
+  Rendered teams/show.json.jbuilder (Duration: 1.9ms | Allocations: 698)
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.2ms | Allocations: 1321)
+
+
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSoccerPlayer Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "soccer_players" WHERE "soccer_players"."team_id" = ?[0m  [["team_id", 1]]
+Started GET "/teams" for 10.240.4.3 at 2023-12-03 00:25:30 +0000
+Cannot render console from 10.240.4.3! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.6ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:6
+  [1m[36mMatch Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 1], ["team_house_id", 1]]
+  ↳ app/models/team.rb:8:in `match_quatity'
+  Rendered teams/_team.html.erb (Duration: 7.5ms | Allocations: 3321)
+  Rendered teams/index.html.erb within layouts/application (Duration: 12.1ms | Allocations: 7068)
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 7160)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 1.0ms | Allocations: 9118)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `jogadores' for #<ActionView::Base:0x0000000003b178>):
+    11: 
+    12: <p>
+    13: <strong>Quantidade de jogadores:</strong>
+    14: <%= team. Quantidade de jogadores %>
+    15: </p>
+    16: 
+    17:   <p>
+  
+app/views/teams/_team.html.erb:14
+app/views/teams/index.html.erb:7
+app/views/teams/index.html.erb:6
+Started GET "/teams" for 10.240.4.3 at 2023-12-03 00:26:41 +0000
+Cannot render console from 10.240.4.3! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:6
+  [1m[36mMatch Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 1], ["team_house_id", 1]]
+  ↳ app/models/team.rb:8:in `match_quatity'
+  [1m[36mSoccerPlayer Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "soccer_players" WHERE "soccer_players"."team_id" = ?[0m  [["team_id", 1]]
+  ↳ app/models/team.rb:12:in `player_quantity'
+  Rendered teams/_team.html.erb (Duration: 7.5ms | Allocations: 3678)
+  [1m[36mMatch Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 2], ["team_house_id", 2]]
+  ↳ app/models/team.rb:8:in `match_quatity'
+  [1m[36mSoccerPlayer Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "soccer_players" WHERE "soccer_players"."team_id" = ?[0m  [["team_id", 2]]
+  ↳ app/models/team.rb:12:in `player_quantity'
+  Rendered teams/_team.html.erb (Duration: 1.9ms | Allocations: 921)
+  [1m[36mMatch Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 3], ["team_house_id", 3]]
+  ↳ app/models/team.rb:8:in `match_quatity'
+  [1m[36mSoccerPlayer Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "soccer_players" WHERE "soccer_players"."team_id" = ?[0m  [["team_id", 3]]
+  ↳ app/models/team.rb:12:in `player_quantity'
+  Rendered teams/_team.html.erb (Duration: 1.9ms | Allocations: 920)
+  [1m[36mMatch Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 4], ["team_house_id", 4]]
+  ↳ app/models/team.rb:8:in `match_quatity'
+  [1m[36mSoccerPlayer Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "soccer_players" WHERE "soccer_players"."team_id" = ?[0m  [["team_id", 4]]
+  ↳ app/models/team.rb:12:in `player_quantity'
+  Rendered teams/_team.html.erb (Duration: 4.5ms | Allocations: 943)
+  [1m[36mMatch Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 5], ["team_house_id", 5]]
+  ↳ app/models/team.rb:8:in `match_quatity'
+  [1m[36mSoccerPlayer Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "soccer_players" WHERE "soccer_players"."team_id" = ?[0m  [["team_id", 5]]
+  ↳ app/models/team.rb:12:in `player_quantity'
+  Rendered teams/_team.html.erb (Duration: 1.6ms | Allocations: 921)
+  Rendered teams/index.html.erb within layouts/application (Duration: 25.2ms | Allocations: 12109)
+  Rendered layout layouts/application.html.erb (Duration: 35.3ms | Allocations: 25274)
+Completed 200 OK in 39ms (Views: 33.6ms | ActiveRecord: 2.9ms | Allocations: 27192)
+
+
+Started GET "/teams.json" for 10.240.1.209 at 2023-12-03 00:31:00 +0000
+Cannot render console from 10.240.1.209! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#index as JSON
+  Rendering teams/index.json.jbuilder
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.json.jbuilder:1
+  [1m[36mMatch Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 1], ["team_house_id", 1]]
+  ↳ app/models/team.rb:8:in `match_quatity'
+  [1m[36mMatch Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 2], ["team_house_id", 2]]
+  ↳ app/models/team.rb:8:in `match_quatity'
+  [1m[36mMatch Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 3], ["team_house_id", 3]]
+  ↳ app/models/team.rb:8:in `match_quatity'
+  [1m[36mMatch Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 4], ["team_house_id", 4]]
+  ↳ app/models/team.rb:8:in `match_quatity'
+  [1m[36mMatch Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 5], ["team_house_id", 5]]
+  ↳ app/models/team.rb:8:in `match_quatity'
+  Rendered collection of teams/_team.json.jbuilder [5 times] (Duration: 10.7ms | Allocations: 4405)
+  Rendered teams/index.json.jbuilder (Duration: 17.8ms | Allocations: 8415)
+Completed 200 OK in 22ms (Views: 17.5ms | ActiveRecord: 2.2ms | Allocations: 10469)
+
+
+Started GET "/teams.json" for 10.240.0.222 at 2023-12-03 00:32:45 +0000
+Cannot render console from 10.240.0.222! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#index as JSON
+  Rendering teams/index.json.jbuilder
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.json.jbuilder:1
+  [1m[36mMatch Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 1], ["team_house_id", 1]]
+  ↳ app/models/team.rb:8:in `match_quatity'
+  [1m[36mSoccerPlayer Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "soccer_players" WHERE "soccer_players"."team_id" = ?[0m  [["team_id", 1]]
+  ↳ app/models/team.rb:12:in `player_quantity'
+  [1m[36mMatch Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 2], ["team_house_id", 2]]
+  ↳ app/models/team.rb:8:in `match_quatity'
+  [1m[36mSoccerPlayer Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "soccer_players" WHERE "soccer_players"."team_id" = ?[0m  [["team_id", 2]]
+  ↳ app/models/team.rb:12:in `player_quantity'
+  [1m[36mMatch Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 3], ["team_house_id", 3]]
+  ↳ app/models/team.rb:8:in `match_quatity'
+  [1m[36mSoccerPlayer Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "soccer_players" WHERE "soccer_players"."team_id" = ?[0m  [["team_id", 3]]
+  ↳ app/models/team.rb:12:in `player_quantity'
+  [1m[36mMatch Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 4], ["team_house_id", 4]]
+  ↳ app/models/team.rb:8:in `match_quatity'
+  [1m[36mSoccerPlayer Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "soccer_players" WHERE "soccer_players"."team_id" = ?[0m  [["team_id", 4]]
+  ↳ app/models/team.rb:12:in `player_quantity'
+  [1m[36mMatch Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "matches" WHERE ("matches"."team_outside_id" = ? OR "matches"."team_house_id" = ?)[0m  [["team_outside_id", 5], ["team_house_id", 5]]
+  ↳ app/models/team.rb:8:in `match_quatity'
+  [1m[36mSoccerPlayer Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "soccer_players" WHERE "soccer_players"."team_id" = ?[0m  [["team_id", 5]]
+  ↳ app/models/team.rb:12:in `player_quantity'
+  Rendered collection of teams/_team.json.jbuilder [5 times] (Duration: 13.2ms | Allocations: 7630)
+  Rendered teams/index.json.jbuilder (Duration: 19.0ms | Allocations: 11698)
+Completed 200 OK in 22ms (Views: 18.2ms | ActiveRecord: 2.0ms | Allocations: 13770)
+
+
