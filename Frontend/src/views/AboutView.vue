@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1> <b-spinner label="Spinning"></b-spinner></h1>
   </div>
 </template>
 
