@@ -2,7 +2,7 @@
   <div class="about">
     <h1>Times</h1>
   
-      <b-button type="submit" variant="primary" v-b-modal.modal-sort-match>SORTEAR TIMES</b-button>
+      <b-button type="submit" variant="primary" v-b-modal.modal-team-form>SORTEAR TIMES</b-button>
       <br>
       <div v-if="loading" class="text-center">
         <b-spinner label="Spinning"></b-spinner>
@@ -10,14 +10,14 @@
 
       <b-table v-else striped hover :items="teams" :fields="tableFields"></b-table>
   
-      <match-form id="modal-sort-teams"/>
+      <team-form id="modal-team-form"/>
     </div>
 
 </template>
 
 <script setup>
-
   import { onMounted, ref } from 'vue';
+  import TeamForm from '../components/TeamForm.vue';
 
   const loading = ref(false)
   const teams   = ref([])
