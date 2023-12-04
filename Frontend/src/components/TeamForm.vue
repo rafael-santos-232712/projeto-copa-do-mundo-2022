@@ -1,5 +1,5 @@
 <template>
-    <b-modal hide-footer title="Adicionar jogador">
+    <b-modal hide-footer v-model="show" :title="isEdition ? 'Editar Time' : 'Adicionar Time'">
       <b-form @submit="onSubmit" @reset="onReset">
         <b-form-group
           id="input-group-1"
@@ -27,27 +27,57 @@
         </b-form-group>
         
         <b-card-footer class="pt-3">
-          <b-button type="submit" class="mx-auto" variant="success">Adicionar</b-button>
-          <b-button type="reset"  class="mx-auto" variant="danger">Excluir</b-button>
+          <b-button type="submit" class="mx-auto" variant="success">{{ isEdition ? 'Editar Time' : 'Adicionar Time' }}</b-button>
+          <b-button type="reset"  class="mx-auto" variant="danger">Limpar Campos</b-button>
         </b-card-footer>
       </b-form>
     </b-modal>
   </template>
   
   <script setup>
-  import { ref } from "vue"
+  import { computed, defineEmits, defineProps, ref } from "vue"
   
-  const form = ref({})
+  const props = defineProps({
+    form: {
+      type: Object,
+      default: () => ({})
+    },
+  })
+
+  const emit = defineEmits(['input', 'saved'])
+
+  const show = ref(false)
+
+  const form = computed({
+    get: () => props.form,
+    set: (val) => emit('input', val)
+  })
+
+  const isEdition = computed(() => !!form.value.id)
   
   const onSubmit = async function() {
-    await fetch('/api/teams', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ team: form.value })
-    });
+    if (isEdition.value) {
+      await fetch('/api/teams/' + form.value.id, {
+        method: 'PATCH',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ team: form.value })
+      });
+    } else {
+      await fetch('/api/teams', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ team: form.value })
+      });
+    }
+
+    show.value = false
+    emit('saved')
   }
   
   const onReset = async function() {
