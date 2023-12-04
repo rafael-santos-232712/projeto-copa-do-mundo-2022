@@ -13,7 +13,7 @@
       <template #cell(actions)="row">
         <b-dropdown size="sm" text="Ações" class="m-2">
           <b-dropdown-item href="#" @click="form = row.item" v-b-modal.modal-team-form>Editar</b-dropdown-item>
-          <b-dropdown-item href="#">Excluir</b-dropdown-item>
+          <b-dropdown-item href="#" @click="destroyTeam(row.item)">Excluir</b-dropdown-item>
         </b-dropdown>
       </template>
     </b-table>
@@ -68,6 +68,18 @@
     }
 
     loading.value = false
+  }
+
+  const destroyTeam = async function(team) {
+    await fetch('/api/teams/' + team.id, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    });
+
+    getTeams()
   }
   
   onMounted(() => {
