@@ -8,7 +8,14 @@
         <b-spinner label="Spinning"></b-spinner>
       </div>
 
-      <b-table v-else striped hover :items="teams" :fields="tableFields"></b-table>
+      <b-table v-else striped hover :items="teams" :fields="tableFields">
+        <template #cell(actions)="row">
+          <b-dropdown size="sm" text="Ações" class="m-2">
+            <b-dropdown-item href="#">Editar</b-dropdown-item>
+            <b-dropdown-item href="#">Excluir</b-dropdown-item>
+          </b-dropdown>
+        </template>
+      </b-table>
   
       <team-form id="modal-team-form"/>
     </div>
@@ -22,37 +29,30 @@
   const loading = ref(false)
   const teams   = ref([])
   const tableFields   = ref([
- {
-       key: 'name', 
-       label: 'Nome'
-  
-      },
-  
-      {      
-       key: 'match_quatity', 
-       label: 'Quantidade de Partidas'
-       
-      },
-   
-     {
+    {
+      key: 'name', 
+      label: 'Nome'
+    },
+    {      
+      key: 'match_quatity', 
+      label: 'Quantidade de Partidas',
+    },
+    {
       key: 'player_quantity',
       label:'Quantidade de jogadores',
-
-     } ,
-
+    } ,
     {
       key:'victories',
-      label:'victories',
+      label:'Vitorias',
     },
-
-     {
+    {
       key:'loses',
-      label: 'loses',
-     } 
-     
-    
-  
-
+      label: 'Derrotas',
+    }, 
+    {
+      key: 'actions',
+      label: 'Ações'
+    }
   ])
 
   const getTeams = async function() {
